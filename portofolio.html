@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuliyanto Darmawan | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+ --navy:#081b38;
+ --blue:#1768d4;
+ --cyan:#48b9ef;
+ --light:#f4f8ff;
+ --text:#26354b;
+ --muted:#718096;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+nav{
+ position:fixed;top:0;width:100%;z-index:1000;
+ display:flex;justify-content:space-between;align-items:center;
+ padding:18px 8%;background:rgba(8,27,56,.96);
+ backdrop-filter:blur(12px)
+}
+.logo{font:800 25px 'Outfit';color:white}
+.logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:25px;list-style:none;color:white;font-size:13px}
+.nav-links a:hover{color:var(--cyan)}
+.menu-btn{display:none;color:white;font-size:23px;cursor:pointer}
+
+.hero{
+ min-height:100vh;display:flex;align-items:center;
+ padding:120px 10% 70px;color:white;
+ background:radial-gradient(circle at 80% 30%,#174c8d,transparent 35%),
+ linear-gradient(120deg,#06152e,#0c2d58 70%,#12477f);
+ gap:50px;overflow:hidden
+}
+.hero-content{max-width:650px;animation:slideUp 1s ease}
+.eyebrow{color:var(--cyan);letter-spacing:4px;font-weight:700;font-size:13px;margin-bottom:20px}
+.hero h1{font:800 clamp(43px,6vw,76px)/1.05 'Outfit';margin-bottom:20px}
+.hero h1 span{color:var(--cyan)}
+.hero p{color:#c1d3eb;line-height:1.8;font-size:15px}
+.hero-buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 22px;border-radius:8px;font-size:13px;font-weight:700;transition:.3s}
+.btn-primary{background:var(--cyan);color:#071a35}
+.btn-outline{border:1px solid #8ba8ca;color:white}
+.btn:hover{transform:translateY(-5px)}
+.hero-image{width:310px;height:400px;margin-left:auto;flex-shrink:0;animation:float 5s infinite ease-in-out}
+.hero-image img{width:100%;height:100%;object-fit:cover;border-radius:20px;border:5px solid #ffffff30;box-shadow:0 25px 60px #0005}
+
+section{padding:90px 10%}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title small{color:var(--blue);letter-spacing:3px;font-weight:800}
+.section-title h2{font:700 36px 'Outfit';color:var(--navy);margin-top:10px}
+.section-title p{color:var(--muted);margin-top:10px;font-size:14px}
+
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:55px;align-items:center}
+.about-photo img{width:100%;max-height:440px;object-fit:cover;border-radius:18px;box-shadow:20px 20px 0 #dceeff}
+.about-text h3{font:700 28px 'Outfit';color:var(--navy);margin-bottom:18px}
+.about-text p{font-size:14px;line-height:1.9;color:var(--muted);margin-bottom:15px}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.info{padding:14px;background:var(--light);border-radius:8px;font-size:12px}
+.info b{display:block;color:var(--navy);margin-bottom:5px}
+
+.light-section{background:var(--light)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:white;padding:28px;border-radius:14px;border:1px solid #e6edf6;transition:.35s}
+.card:hover{transform:translateY(-8px);box-shadow:0 15px 35px #14325a18;border-color:#acd9ff}
+.card-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:12px;color:var(--blue);background:#e9f4ff;font-size:20px;margin-bottom:18px}
+.card h3{color:var(--navy);font:700 19px 'Outfit';margin-bottom:9px}
+.card h4{font-size:13px;color:var(--blue);margin-bottom:10px}
+.card p,.card li{color:var(--muted);font-size:13px;line-height:1.8}
+.card ul{padding-left:18px}
+
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.skill{padding:20px;border:1px solid #e8eef7;border-radius:10px;transition:.3s}
+.skill:hover{background:#eff7ff;transform:scale(1.03)}
+.skill i{color:var(--blue);margin-right:10px}
+.skill span{font-size:13px;font-weight:600}
+
+.languages{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.language{background:var(--navy);color:white;text-align:center;padding:25px 12px;border-radius:12px;transition:.3s}
+.language:hover{transform:translateY(-7px);background:#124b89}
+.language i{font-size:25px;color:var(--cyan);margin-bottom:13px}
+.language h3{font-size:14px;margin-bottom:6px}
+.language p{font-size:11px;color:#b9d1ef}
+
+.contact{background:linear-gradient(120deg,#081b38,#124b89);color:white;text-align:center}
+.contact .section-title h2{color:white}
+.contact .section-title p{color:#c0d4ef}
+.contact-box{max-width:650px;margin:auto;background:#ffffff12;border:1px solid #ffffff25;padding:35px;border-radius:15px}
+.contact-box p{color:#d2e2f7;font-size:14px;line-height:1.8}
+.contact-links{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:25px}
+footer{background:#051329;color:#a7bad5;padding:25px;text-align:center;font-size:12px}
+footer span{color:var(--cyan)}
+
+.reveal{opacity:0;transform:translateY(35px);transition:.8s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+
+@media(max-width:850px){
+ nav{padding:17px 6%}
+ .nav-links{display:none;position:absolute;top:65px;left:0;width:100%;padding:25px;background:#081b38;flex-direction:column;align-items:center}
+ .nav-links.active{display:flex}
+ .menu-btn{display:block}
+ .hero{flex-direction:column-reverse;text-align:center;gap:40px;padding-top:120px}
+ .hero-image{margin:auto;width:240px;height:300px}
+ .hero-buttons{justify-content:center}
+ .about{grid-template-columns:1fr}
+ .about-photo{max-width:420px;margin:auto}
+ .skills-grid{grid-template-columns:repeat(2,1fr)}
+ .languages{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:550px){
+ section{padding:70px 6%}
+ .cards{grid-template-columns:1fr}
+ .skills-grid{grid-template-columns:1fr 1fr}
+ .section-title h2{font-size:29px}
+ .hero h1{font-size:45px}
+ .info-grid{grid-template-columns:1fr}
+ .contact-box{padding:25px 17px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <a href="#home" class="logo">YB<span>.</span></a>
+ <ul class="nav-links" id="navLinks">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#education">Education</a></li>
+  <li><a href="#experience">Experience</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#contact">Contact</a></li>
+ </ul>
+ <div class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
+</nav>
+
+<header class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow">WELCOME TO MY PORTFOLIO</div>
+  <h1>Yuliyanto<br><span>Darmawan.</span></h1>
+  <p>
+   Hard Work • Learn More • Be Better.<br><br>
+   Lulusan Teknik Jaringan Komputer dan Telekomunikasi
+   yang memiliki minat dalam administrasi gudang,
+   teknologi komputer, dan pengembangan diri.
+  </p>
+  <div class="hero-buttons">
+   <a href="#about" class="btn btn-primary">Explore Portfolio <i class="fas fa-arrow-right"></i></a>
+   <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+  </div>
+ </div>
+ <div class="hero-image">
+  <img src="jakun.jpeg" alt="Yuli Yanto Darmawan">
+ </div>
+</header>
+
+<section id="about">
+ <div class="section-title reveal">
+  <small>GET TO KNOW ME</small>
+  <h2>About Me</h2>
+  <p>Kenali saya lebih dekat</p>
+ </div>
+ <div class="about reveal">
+  <div class="about-photo">
+   <img src="jakn kcng.jpeg" alt="Foto Yulianto">
+  </div>
+  <div class="about-text">
+   <h3>Halo, Saya Yuli Yanto Darmawan!</h3>
+   <p>Saya merupakan lulusan SMK Yadika 13 Bekasi jurusan Teknik Jaringan Komputer dan Telekomunikasi (TJKT). Saya memiliki pengalaman Praktik Kerja Lapangan (PKL) sebagai Admin Gudang di PT Alcomexindo.</p>
+   <p>Terampil dalam administrasi gudang, pengelolaan data, serta memiliki kemampuan di bidang jaringan komputer. Saya pribadi yang aktif dalam organisasi, mudah beradaptasi, disiplin, bertanggung jawab, dan mampu bekerja secara individu maupun tim.</p>
+   <div class="info-grid">
+    <div class="info"><b><i class="fas fa-graduation-cap"></i> Pendidikan</b>SMK Yadika 13 Bekasi</div>
+    <div class="info"><b><i class="fas fa-briefcase"></i> Pengalaman</b>Admin Gudang</div>
+    <div class="info"><b><i class="fas fa-map-marker-alt"></i> Lokasi</b>Bekasi</div>
+    <div class="info"><b><i class="fas fa-envelope"></i> Email</b>yuldar88@gmail.com</div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="light-section" id="education">
+ <div class="section-title reveal">
+  <small>MY BACKGROUND</small>
+  <h2>Education</h2>
+  <p>Riwayat pendidikan saya</p>
+ </div>
+ <div class="cards">
+  <div class="card reveal">
+   <div class="card-icon"><i class="fas fa-school"></i></div>
+   <h3>SMK Yadika 13 Bekasi</h3>
+   <h4>Teknik Jaringan Komputer dan Telekomunikasi</h4>
+   <p>Status: Lulus</p>
+   <p>Mempelajari dasar jaringan komputer dan telekomunikasi.</p>
+  </div>
+ </div>
+</section>
+
+<section id="experience">
+ <div class="section-title reveal">
+  <small>MY JOURNEY</small>
+  <h2>Experience</h2>
+  <p>Pengalaman kerja dan organisasi</p>
+ </div>
+ <div class="cards">
+  <div class="card reveal">
+   <div class="card-icon"><i class="fas fa-warehouse"></i></div>
+   <h3>PT Alcomexindo</h3>
+   <h4>Admin Gudang — Pengalaman PKL</h4>
+   <ul>
+    <li>Menginput data barang masuk dan keluar.</li>
+    <li>Mengelola dokumen administrasi gudang.</li>
+    <li>Membantu proses stock opname.</li>
+    <li>Memastikan kesesuaian data dengan stok fisik.</li>
+    <li>Membantu operasional administrasi gudang.</li>
+   </ul>
+  </div>
+  <div class="card reveal">
+   <div class="card-icon"><i class="fas fa-users"></i></div>
+   <h3>Sekolah Minggu Buddha</h3>
+   <h4>Pengurus — Sie OKK</h4>
+   <ul>
+    <li>Membantu perencanaan dan pelaksanaan kegiatan.</li>
+    <li>Menjaga ketertiban dan kelancaran acara.</li>
+    <li>Berkoordinasi dengan pengurus dan panitia.</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section class="light-section">
+ <div class="section-title reveal">
+  <small>SELF DEVELOPMENT</small>
+  <h2>Training & Development</h2>
+  <p>Pelatihan dan pengembangan diri</p>
+ </div>
+ <div class="cards">
+  <div class="card reveal">
+   <div class="card-icon"><i class="fas fa-award"></i></div>
+   <h3>Latihan Dasar Kepemimpinan Siswa</h3>
+   <p>LDKS — Latihan kepemimpinan dan pengembangan karakter siswa.</p>
+  </div>
+  <div class="card reveal">
+   <div class="card-icon"><i class="fas fa-hands-helping"></i></div>
+   <h3>Pelatihan Pengasuh Anak</h3>
+   <p>Pelatihan Pengasuh Anak Sekolah Minggu.</p>
+  </div>
+ </div>
+</section>
+
+<section id="skills">
+ <div class="section-title reveal">
+  <small>WHAT I CAN DO</small>
+  <h2>My Skills</h2>
+  <p>Keahlian dan kemampuan yang saya miliki</p>
+ </div>
+ <div class="skills-grid">
+  <div class="skill reveal"><i class="fas fa-warehouse"></i><span>Warehouse Administration</span></div>
+  <div class="skill reveal"><i class="fas fa-boxes-stacked"></i><span>Stock Opname</span></div>
+  <div class="skill reveal"><i class="fas fa-file-excel"></i><span>Microsoft Office</span></div>
+  <div class="skill reveal"><i class="fas fa-network-wired"></i><span>Crimping Cable</span></div>
+  <div class="skill reveal"><i class="fas fa-server"></i><span>Konfigurasi Jaringan</span></div>
+  <div class="skill reveal"><i class="fas fa-wifi"></i><span>MikroTik</span></div>
+  <div class="skill reveal"><i class="fas fa-project-diagram"></i><span>Desain Jaringan</span></div>
+  <div class="skill reveal"><i class="fas fa-globe"></i><span>Web Design</span></div>
+  <div class="skill reveal"><i class="fas fa-laptop"></i><span>Hardware & Software Komputer</span></div>
+  <div class="skill reveal"><i class="fas fa-palette"></i><span>Desain Grafis</span></div>
+  <div class="skill reveal"><i class="fas fa-lightbulb"></i><span>Problem Solving</span></div>
+  <div class="skill reveal"><i class="fas fa-people-group"></i><span>Teamwork</span></div>
+  <div class="skill reveal"><i class="fas fa-comments"></i><span>Komunikasi</span></div>
+ </div>
+</section>
+
+<section class="light-section">
+ <div class="section-title reveal">
+  <small>COMMUNICATION</small>
+  <h2>Languages</h2>
+  <p>Kemampuan bahasa</p>
+ </div>
+ <div class="languages">
+  <div class="language reveal"><i class="fas fa-language"></i><h3>Indonesia</h3><p>Mahir</p></div>
+  <div class="language reveal"><i class="fas fa-language"></i><h3>Inggris</h3><p>Menengah</p></div>
+  <div class="language reveal"><i class="fas fa-language"></i><h3>Jepang</h3><p>Dasar</p></div>
+  <div class="language reveal"><i class="fas fa-language"></i><h3>Mandarin</h3><p>Dasar</p></div>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="section-title reveal">
+  <small>LET'S CONNECT</small>
+  <h2>Contact Me</h2>
+  <p>Terbuka untuk peluang kerja, kolaborasi, dan koneksi baru.</p>
+ </div>
+ <div class="contact-box reveal">
+  <h3 style="font-size:23px;margin-bottom:15px">Let's Work Together!</h3>
+  <p>Tertarik mengenal saya lebih jauh? Silakan hubungi saya melalui email. Saya akan senang untuk terhubung dengan Anda.</p>
+  <div class="contact-links">
+   <a href="mailto:yuldar88@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Us</a>
+   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yuldar88@gmail.com" target="_blank" rel="noopener" class="btn btn-outline"><i class="fab fa-google"></i> Send Email</a>
+  </div>
+  <p style="margin-top:25px;color:white"><i class="fas fa-envelope" style="color:#48b9ef"></i> yuldar88@gmail.com</p>
+ </div>
+</section>
+
+<footer>
+ <p>© 2026 <span>Yuli Yanto Darmawan</span>. All Rights Reserved.</p>
+ <p style="margin-top:9px">"Terus belajar, berkembang, dan memberikan yang terbaik."</p>
+</footer>
+
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+
+menuBtn.addEventListener('click',()=>{
+ navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link=>{
+ link.addEventListener('click',()=>{
+  navLinks.classList.remove('active');
+ });
+});
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('show');
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el=>{
+ observer.observe(el);
+});
+</script>
+
+</body>
+</html>
